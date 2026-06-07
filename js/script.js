@@ -1,24 +1,3 @@
-window.addEventListener("load", () => {
-
-    if(sessionStorage.getItem("loaderShown")){
-
-        document.querySelector(".loader").style.display = "none";
-
-        return;
-
-    }
-
-    sessionStorage.setItem("loaderShown","true");
-
-    setTimeout(() => {
-
-        document.querySelector(".loader")
-        .classList.add("hide");
-
-    }, 2500);
-
-});
-
 const menuToggle =
 document.getElementById("menuToggle");
 
