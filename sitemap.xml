@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+<loc>https://afrovecteur.netlify.app/</loc>
+<priority>1.0</priority>
+</url>
+
+<url>
+<loc>https://afrovecteur.netlify.app/blog/logo-essentiel.html</loc>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://afrovecteur.netlify.app/blog/design-africain-2026.html</loc>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://afrovecteur.netlify.app/blog/intelligence-artificielle-design.html</loc>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://afrovecteur.netlify.app/blog/erreurs-branding.html</loc>
+<priority>0.8</priority>
+</url>
+
+</urlset>
