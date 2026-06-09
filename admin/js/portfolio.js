@@ -3,7 +3,7 @@ document.getElementById("projectsContainer");
 
 container.innerHTML = `
 <div class="card">
-<img src="../images/logo-fondation.jpg" alt="Fondation Syntiche Kaja">
+<img src="../images/fsk-cover.jpg" alt="Fondation Syntiche Kaja">
 
 <h2>Fondation Syntiche Kaja</h2>
 
@@ -27,7 +27,7 @@ Supprimer
 </div>
 
 <div class="card">
-<img src="../images/savon.jpg" alt="Savon Le Coq">
+<img src="../images/lecoq-cover.jpg" alt="Savon Le Coq">
 
 <h2>Savon Le Coq</h2>
 
