@@ -1,58 +1,99 @@
-const container = document.getElementById("projectsContainer");
+const container =
+document.getElementById("projectsContainer");
 
-fetch("/data/portfolio/projets.json")
-  .then(response => response.json())
-  .then(projets => {
+container.innerHTML = `
+<div class="card">
+<img src="../images/logo-fondation.jpg" alt="Fondation Syntiche Kaja">
 
-    let html = "";
+<h2>Fondation Syntiche Kaja</h2>
 
-    projets.forEach((projet, index) => {
+<span class="badge">
+Branding
+</span>
 
-      html += `
-        <div class="card">
+<p>
+Création de la charte graphique complète.
+</p>
 
-          <img src="${projet.image}" alt="${projet.titre}">
+<div class="actions">
+<button class="edit-btn">
+Modifier
+</button>
 
-          <h2>${projet.titre}</h2>
+<button class="delete-btn">
+Supprimer
+</button>
+</div>
+</div>
 
-          <span class="badge">
-            ${projet.categorie}
-          </span>
+<div class="card">
+<img src="../images/savon.jpg" alt="Savon Le Coq">
 
-          <p>
-            ${projet.description}
-          </p>
+<h2>Savon Le Coq</h2>
 
-          <div class="actions">
+<span class="badge">
+Packaging
+</span>
 
-            <button class="edit-btn"
-            onclick="modifierProjet(${index})">
-              Modifier
-            </button>
+<p>
+Conception du packaging du savon.
+</p>
 
-            <button class="delete-btn"
-            onclick="supprimerProjet(${index})">
-              Supprimer
-            </button>
+<div class="actions">
+<button class="edit-btn">
+Modifier
+</button>
 
-          </div>
+<button class="delete-btn">
+Supprimer
+</button>
+</div>
+</div>
+`;
 
-        </div>
-      `;
-    });
+const addBtn =
+document.getElementById("addProjectBtn");
 
-    container.innerHTML = html;
-  });
+addBtn.addEventListener("click", () => {
 
-function modifierProjet(id) {
-  alert("Modification du projet #" + id);
-}
+const titre =
+prompt("Titre du projet :");
 
-function supprimerProjet(id) {
+if(!titre) return;
 
-  if(confirm("Supprimer ce projet ?")) {
+const categorie =
+prompt("Catégorie :");
 
-    alert("Projet #" + id + " supprimé");
+const description =
+prompt("Description :");
 
-  }
-}
+const card =
+document.createElement("div");
+
+card.className = "card";
+
+card.innerHTML = `
+<h2>${titre}</h2>
+
+<span class="badge">
+${categorie}
+</span>
+
+<p>
+${description}
+</p>
+
+<div class="actions">
+<button class="edit-btn">
+Modifier
+</button>
+
+<button class="delete-btn">
+Supprimer
+</button>
+</div>
+`;
+
+container.appendChild(card);
+
+});
