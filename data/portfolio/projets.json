@@ -1,0 +1,15 @@
+[
+  {
+    "titre": "Fondation Syntiche Kaja",
+    "categorie": "Branding",
+    "image": "/images/logo-fondation.jpg",
+    "description": "Création de la charte graphique complète."
+  },
+
+  {
+    "titre": "Savon Le Coq",
+    "categorie": "Packaging",
+    "image": "/images/savon-lecoq.jpg",
+    "description": "Conception du packaging du savon."
+  }
+]
