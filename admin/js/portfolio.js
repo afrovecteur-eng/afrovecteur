@@ -6,32 +6,53 @@ fetch("/data/portfolio/projets.json")
 
     let html = "";
 
-    projets.forEach(projet => {
+    projets.forEach((projet, index) => {
 
       html += `
         <div class="card">
 
-          <img src="${projet.image}" alt="${projet.titre}" width="200">
+          <img src="${projet.image}" alt="${projet.titre}">
 
           <h2>${projet.titre}</h2>
 
-          <p>${projet.categorie}</p>
+          <span class="badge">
+            ${projet.categorie}
+          </span>
 
-          <p>${projet.description}</p>
+          <p>
+            ${projet.description}
+          </p>
+
+          <div class="actions">
+
+            <button class="edit-btn"
+            onclick="modifierProjet(${index})">
+              Modifier
+            </button>
+
+            <button class="delete-btn"
+            onclick="supprimerProjet(${index})">
+              Supprimer
+            </button>
+
+          </div>
 
         </div>
       `;
-
     });
 
     container.innerHTML = html;
-
-  })
-  .catch(error => {
-
-    container.innerHTML =
-      "<p>Erreur de chargement des projets.</p>";
-
-    console.error(error);
-
   });
+
+function modifierProjet(id) {
+  alert("Modification du projet #" + id);
+}
+
+function supprimerProjet(id) {
+
+  if(confirm("Supprimer ce projet ?")) {
+
+    alert("Projet #" + id + " supprimé");
+
+  }
+}
