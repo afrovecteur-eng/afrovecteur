@@ -3,7 +3,7 @@ document.getElementById("projectsContainer");
 
 container.innerHTML = `
 <div class="card">
-<img src="../images/fsk-cover.jpg" alt="Fondation Syntiche Kaja">
+<img src="../images/logo-fondation.jpg">
 
 <h2>Fondation Syntiche Kaja</h2>
 
@@ -27,7 +27,7 @@ Supprimer
 </div>
 
 <div class="card">
-<img src="../images/lecoq-cover.jpg" alt="Savon Le Coq">
+<img src="../images/savon.jpg">
 
 <h2>Savon Le Coq</h2>
 
@@ -51,21 +51,49 @@ Supprimer
 </div>
 `;
 
+const modal =
+document.getElementById("projectModal");
+
 const addBtn =
 document.getElementById("addProjectBtn");
 
+const closeBtn =
+document.getElementById("closeModal");
+
+const saveBtn =
+document.getElementById("saveProject");
+
 addBtn.addEventListener("click", () => {
 
-const titre =
-prompt("Titre du projet :");
+modal.style.display = "flex";
 
-if(!titre) return;
+});
 
-const categorie =
-prompt("Catégorie :");
+closeBtn.addEventListener("click", () => {
+
+modal.style.display = "none";
+
+});
+
+saveBtn.addEventListener("click", () => {
+
+const title =
+document.getElementById("projectTitle").value;
+
+const category =
+document.getElementById("projectCategory").value;
 
 const description =
-prompt("Description :");
+document.getElementById("projectDescription").value;
+
+if(
+title === "" ||
+category === "" ||
+description === ""
+){
+alert("Veuillez remplir tous les champs");
+return;
+}
 
 const card =
 document.createElement("div");
@@ -73,10 +101,10 @@ document.createElement("div");
 card.className = "card";
 
 card.innerHTML = `
-<h2>${titre}</h2>
+<h2>${title}</h2>
 
 <span class="badge">
-${categorie}
+${category}
 </span>
 
 <p>
@@ -95,5 +123,11 @@ Supprimer
 `;
 
 container.appendChild(card);
+
+modal.style.display = "none";
+
+document.getElementById("projectTitle").value = "";
+document.getElementById("projectCategory").value = "";
+document.getElementById("projectDescription").value = "";
 
 });
