@@ -109,6 +109,12 @@ document.getElementById("projectCategory").value;
 const description =
 document.getElementById("projectDescription").value;
 
+const imageInput =
+document.getElementById("projectImage");
+
+const imageFile =
+imageInput.files[0];  
+
 if(
 title === "" ||
 category === "" ||
@@ -117,6 +123,52 @@ description === ""
 alert("Veuillez remplir tous les champs");
 return;
 }
+
+if(imageFile){
+
+const reader =
+new FileReader();
+
+reader.onload = function(event){
+
+const card =
+document.createElement("div");
+
+card.className = "card";
+
+card.innerHTML = `
+<img src="${event.target.result}">
+
+<h2>${title}</h2>
+
+<span class="badge">
+${category}
+</span>
+
+<p>
+${description}
+</p>
+
+<div class="actions">
+<button class="edit-btn">
+Modifier
+</button>
+
+<button class="delete-btn">
+Supprimer
+</button>
+</div>
+`;
+
+container.appendChild(card);
+
+saveProjects();
+
+};
+
+reader.readAsDataURL(imageFile);
+
+}else{
 
 const card =
 document.createElement("div");
@@ -149,11 +201,16 @@ container.appendChild(card);
 
 saveProjects();
 
+}
+
+saveProjects();
+
 modal.style.display = "none";
 
 document.getElementById("projectTitle").value = "";
 document.getElementById("projectCategory").value = "";
 document.getElementById("projectDescription").value = "";
+document.getElementById("projectImage").value = "";  
 
 });
 
