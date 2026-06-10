@@ -1,9 +1,30 @@
 const container =
 document.getElementById("projectsContainer");
 
+function saveProjects() {
+
+localStorage.setItem(
+"portfolioProjects",
+container.innerHTML
+);
+
+}
+
+const savedProjects =
+localStorage.getItem(
+"portfolioProjects"
+);
+
+if(savedProjects){
+
+container.innerHTML =
+savedProjects;
+
+}else{
+
 container.innerHTML = `
 <div class="card">
-<img src="../images/logo-fondation.jpg">
+<img src="../images/fsk-cover.jpg">
 
 <h2>Fondation Syntiche Kaja</h2>
 
@@ -27,7 +48,7 @@ Supprimer
 </div>
 
 <div class="card">
-<img src="../images/savon.jpg">
+<img src="../images/lecoq-cover.jpg">
 
 <h2>Savon Le Coq</h2>
 
@@ -50,6 +71,8 @@ Supprimer
 </div>
 </div>
 `;
+
+}
 
 const modal =
 document.getElementById("projectModal");
@@ -124,6 +147,8 @@ Supprimer
 
 container.appendChild(card);
 
+saveProjects();
+
 modal.style.display = "none";
 
 document.getElementById("projectTitle").value = "";
@@ -131,3 +156,24 @@ document.getElementById("projectCategory").value = "";
 document.getElementById("projectDescription").value = "";
 
 });
+
+document.addEventListener(
+"click",
+function(e){
+
+if(
+e.target.classList.contains(
+"delete-btn"
+)
+){
+
+e.target
+.closest(".card")
+.remove();
+
+saveProjects();
+
+}
+
+}
+);
